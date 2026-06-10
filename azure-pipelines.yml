@@ -1,0 +1,51 @@
+trigger: none
+
+pool:
+  name: Default
+
+steps:
+
+- task: PowerShell@2
+  displayName: 'Get Request'
+  inputs:
+    filePath: 'scripts/GetRequest.ps1'
+
+- task: PowerShell@2
+  displayName: 'Validate'
+  inputs:
+    filePath: 'scripts/Validate.ps1'
+
+- task: PowerShell@2
+  displayName: 'Initial Copy'
+  inputs:
+    filePath: 'scripts/InitialCopy.ps1'
+
+- task: PowerShell@2
+  displayName: 'Send Email'
+  inputs:
+    filePath: 'scripts/SendMail.ps1'
+
+- task: PowerShell@2
+  displayName: 'Approval Check'
+  inputs:
+    filePath: 'scripts/ApprovalCheck.ps1'
+
+- task: PowerShell@2
+  displayName: 'Final Copy'
+  inputs:
+    filePath: 'scripts/FinalCopy.ps1'
+
+- task: PowerShell@2
+  displayName: 'Cutover'
+  inputs:
+    filePath: 'scripts/Cutover.ps1'
+    
+- task: PowerShell@2
+  displayName: 'Generate Report'
+  inputs:
+    filePath: 'scripts/GenerateReport.ps1'
+
+- task: PowerShell@2
+  displayName: 'Close Task'
+  inputs:
+    filePath: 'scripts/CloseTask.ps1'
